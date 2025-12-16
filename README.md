@@ -12,10 +12,10 @@ Ce dépôt contient le code source complet. Pour le déploiement et l'utilisatio
 
 Choisissez votre plateforme d'hébergement préférée pour commencer :
 
-Hébergeur
-
-| **Render** (Deploy-render.html) |
-| **Koyeb**  (Deploy-koyeb.html) |
+| Hébergeur | Guide Complet |
+| :--- | :--- |
+| **Render** | [Guide pour Render](https://dr-djibi.github.io/OVL-MD-docs/Deploy-render.html) |
+| **Koyeb** | [Guide pour Koyeb](https://dr-djibi.github.io/OVL-MD-docs/Deploy-koyeb.html) |
 
 ---
 
@@ -33,7 +33,7 @@ Le bot utilise la méthode du **Code d'association (Pairing Code)** :
 
 Toutes les commandes, le support, et les tutoriels de configuration se trouvent ici :
 
-➡️ **[]**
+➡️ **[Accéder à l'Accueil de la Documentation](https://dr-djibi.github.io/OVL-MD-docs/)**
 
 ---
 
@@ -41,14 +41,14 @@ Toutes les commandes, le support, et les tutoriels de configuration se trouvent 
 
 Besoin d'aide ? Rejoignez notre communauté :
 
-* **[Groupe de Support WhatsApp]([https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq])**
-* **[Contacter l'équipe](./contact.html)**
+* [Groupe de Support WhatsApp](https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq)
+* [Chaîne WhatsApp (Annonces)](https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq)
+* [Contacter l'équipe](contact.html)
 
 ---
 
 ## 📜 Crédits
 
 Développeur Principal : **Dr Djibi**
-
 
 ---
