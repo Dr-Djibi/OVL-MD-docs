@@ -270,3 +270,9 @@ footer p {
 footer strong {
     color: #28a745; /* Met en évidence le nom du créateur en vert */
 }
+/* Cette règle force les chaînes de caractères très longues à se couper pour respecter les marges et les paddings */
+.etape p, .vars-list p, .intro p, ol p, li p {
+    word-break: break-word; /* Recommandé par le W3C */
+    overflow-wrap: break-word; /* Pour une meilleure compatibilité */
+}
+
