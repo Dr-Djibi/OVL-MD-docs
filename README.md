@@ -48,7 +48,8 @@ Besoin d'aide ? Rejoignez notre communauté :
 ---
 
 ## 📜 Crédits
-
-Développeur Principal : **Dr Djibi**
+Développeur de OVL-MD : **Ainz**
+Développeur du Docs : **Dr Djibi**
 
 ---
+
