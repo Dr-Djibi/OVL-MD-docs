@@ -14,8 +14,8 @@ Choisissez votre plateforme d'hébergement préférée pour commencer :
 
 Hébergeur
 
-| **Render**  [Guide Complet pour Render](Deploy-render.html) |
-| **Koyeb**  [Guide Complet pour Koyeb](Deploy-koyeb.html) |
+| **Render** (Deploy-render.html) |
+| **Koyeb**  (Deploy-koyeb.html) |
 
 ---
 
@@ -33,7 +33,7 @@ Le bot utilise la méthode du **Code d'association (Pairing Code)** :
 
 Toutes les commandes, le support, et les tutoriels de configuration se trouvent ici :
 
-➡️ **[Lien vers votre Documentation Complète (Accueil)]([LIEN VERS VOTRE INDEX.HTML])**
+➡️ **[]**
 
 ---
 
@@ -41,13 +41,14 @@ Toutes les commandes, le support, et les tutoriels de configuration se trouvent 
 
 Besoin d'aide ? Rejoignez notre communauté :
 
-* **[Groupe de Support WhatsApp]([LIEN WHATSAPP GROUPE])**
-* **[Contacter l'équipe]([LIEN VERS VOTRE CONTACT.HTML])**
+* **[Groupe de Support WhatsApp]([https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq])**
+* **[Contacter l'équipe](./contact.html)**
 
 ---
 
 ## 📜 Crédits
 
-Développeur Principal : **Ainz-devs** | Maintenu par : **Dr Djibi**.
+Développeur Principal : **Dr Djibi**
+
 
 ---
