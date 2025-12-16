@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Variables | Koyeb | OVL-MD</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+</head>
+<body>
+    
+    <div class="navbar">
+        <a href="./index.html">Accueil</a>
+        <a href="./contact.html">Contact & Support</a>
+        <a href="./a-propos.html">À Propos</a>
+    </div>
+   
+    <h1>🛠️ Modifier un Réglage (Variable) sur Koyeb</h1>
+    
+    <div class="intro">
+        <p>Voici comment changer les réglages de ton bot (comme le préfixe ou le nom) si tu utilises Koyeb comme hébergeur.</p>
+        <p class="etape-intro">C'est la méthode rapide pour renouveler ta SESSION_ID ou modifier tes paramètres sans tout redéployer.</p>
+    </div>
+
+    <ol>
+        <li>
+            <h3>Accéder à l'Application</h3>
+            <p>Va sur ton tableau de bord Koyeb et clique sur l'Application qui contient ton bot (par défaut, elle s'appelle probablement `ovl-md`).</p>
+        </li>
+        <li>
+            <h3>Sélectionner le Service</h3>
+            <p>Dans l'application, tu verras le Service de ton bot. Clique sur cet élément pour ouvrir le panneau de configuration.</p>
+        </li>
+        <li>
+            <h3>Ouvrir l'onglet 'Environnement'</h3>
+            <p>Dans le menu de navigation à gauche du Service, trouve et clique sur l'onglet 'Environment variables' (Variables d'environnement).</p>
+        </li>
+        <li>
+            <h3>Mise à Jour de la SESSION_ID (Si nécessaire)</h3>
+            <p>Si tu as généré une nouvelle clé de connexion (SESSION_ID) :</p>
+            <details>
+                <summary>Comment mettre à jour ma clé ?</summary>
+                <div class="vars-list">
+                    <p>1. Cherche la variable nommée <code>SESSION_ID</code>.</p>
+                    <p>2. Clique sur l'icône de modification (souvent un crayon).</p>
+                    <p>3. Colle ta nouvelle et longue chaîne de connexion (obtenue après le Pair du Code) dans le champ Value.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            <h3>Modifier les autres Variables</h3>
+            <p>Cherche le réglage que tu veux changer (par exemple : <code>PREFIXE</code> ou <code>MODE</code>). Clique pour modifier sa valeur.</p>
+        </li>
+        <li>
+            <h3>Déployer les Changements</h3>
+            <p>Une fois que tu as fini de modifier, clique sur le bouton 'Save' (Sauvegarder) en bas de la section. Koyeb va automatiquement lancer un nouveau déploiement pour que ton bot applique les changements. Attends le statut 'Running' ! 🎉</p>
+        </li>
+    </ol>
+    <footer>
+        <p>&copy; 2025-2026 Guides OVL-MD. Tous droits réservés.</p>
+        <p>Créé et maintenu par <strong>Dr Djibi</strong>.</p>
+    </footer>
+
+</body>
+</html> 

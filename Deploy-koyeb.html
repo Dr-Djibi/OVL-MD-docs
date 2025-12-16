@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de Déploiement : Koyeb | OVL-MD</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./index.html" class="active">Accueil</a>
+        <a href="./contact.html">Contact & Support</a>
+        <a href="./a-propos.html">À Propos</a>
+    </div>
+    <h1>Déploiement Koyeb</h1>
+
+    <div class="intro">
+        <p>🤖 Installer ton Bot OVL-MD sur Koyeb (Hébergement Gratuit) :</p>
+        <p class="etape-intro">Cette section t'explique comment mettre ton bot en ligne sur Koyeb, une plateforme qui le
+            fait tourner 24h/24.</p>
+    </div>
+
+    <ol>
+        <li>
+            <h3>Création du Compte Koyeb</h3>
+            <p>Crée un compte sur <a href="https://www.koyeb.com"><code>Koyeb.com</code></a>. C'est l'endroit où ton bot
+                va 'vivre' sur internet.</p>
+        </li>
+        <li>
+            <h3>Création de la Clé de Connexion (Session ID)</h3>
+            <p>Cette clé est secrète et lie le bot à ton WhatsApp. Va sur : <a
+                    href="https://ovl-web.koyeb.app/pair/"><code>https://ovl-web.koyeb.app/pair/</code></a></p>
+        </li>
+        <li>
+            <h3>Pair du Code (Code d'association)</h3>
+            <p>1. Va sur le site indiqué et entre ton numéro de téléphone pour demander le code.</p>
+            <p>2. Ouvre ton téléphone et va dans WhatsApp. Le code à 8 chiffres est à entrer ici :</p>
+            <p style="font-weight: bold; margin-left: 20px;">
+                WhatsApp > Paramètres (ou Options) > Appareils connectés > Lier un appareil > Lier avec un numéro de
+                téléphone
+            </p>
+            <p>3. Entre le code à 8 chiffres que le site t'a donné. Une fois associé, le site te fournira ta longue
+                chaîne de caractères : c'est ta SESSION_ID (garde-la précieusement !).</p>
+        </li>
+
+        <li>
+            <h3>Lancement de l'Installation (Lien Magique)</h3>
+            <p>Clique sur ce lien magique pour lancer l'installation rapide :</p>
+            <p>
+                <a
+                    href="https://app.koyeb.com/deploy?type=git&name=ovl-md&repository=https%3A%2F%2Fgithub.com%2FAinz-devs%2FOVL-MD-V2&branch=main&builder=dockerfile&env%5BPREFIXE%5D=%F0%9F%97%BF&env%5BNOM_OWNER%5D=Ainz&env%5BNUMERO_OWNER%5D=226xxxxxxxx&env%5BMODE%5D=public&env%5BSESSION_ID%5D=ovl&env%5BDATABASE%5D=&env%5BLEVEL_UP%5D=non&env%5BSTICKER_PACK_NAME%5D=Wa-sticker&env%5BSTICKER_AUTHOR_NAME%5D=OVL-MD&instance_type=free">
+                    Lien de Déploiement Direct Koyeb
+                </a>
+            </p>
+        </li>
+        <li>
+            <h3>Modification des Variables d'Environnement (VARS)</h3>
+            <p>Dans le formulaire d'installation qui apparaît, modifie les 'Variables' (ce sont les réglages de ton bot)
+                :</p>
+
+            <details>
+                <summary>Cliquez ici pour modifier les 5 Variables TRÈS IMPORTANTES</summary>
+                <div class="vars-list">
+                    <p>A) <strong><code>SESSION_ID</code></strong> : Colle la longue clé que tu as eue à l'étape 3.</p>
+                    <p>B) <strong><code>PREFIXE</code></strong> : C'est le symbole devant toutes les commandes (ex: `!`,
+                        `.`, ou ``). Choisis-en un simple ou même un emoji.</p>
+                    <p>C) <strong><code>NUMERO_OWNER</code></strong> : Ton numéro WhatsApp (sans le `+` au début, ex:
+                        `2267xxxxxxx`). C'est le numéro du boss du bot.</p>
+                    <p>D) <strong><code>NOM_OWNER</code></strong> : Le nom que le bot utilisera pour te nommer (ex: `Le
+                        Patron`, `Ton Nom`).</p>
+                    <p>E) <strong><code>MODE</code></strong> : Mets `public` (tout le monde peut utiliser le bot) ou
+                        `private` (seul toi peux l'utiliser). Mets-le en minuscule.</p>
+                </div>
+            </details>
+        </li>
+        <li>
+            <h3>Finalisation du Déploiement</h3>
+            <p>Vérifie que le plan est sur <code>free</code> (gratuit) et clique sur le bouton 'Deploy'. Attends
+                quelques minutes, ton bot va démarrer tout seul ! 🎉</p>
+        </li>
+    </ol>
+    <footer>
+        <p>&copy; 2025-2026 Guides OVL-MD. Tous droits réservés.</p>
+        <p>Créé et maintenu par <strong>Dr Djibi</strong>.</p>
+    </footer>
+
+</body>
+</html> 
