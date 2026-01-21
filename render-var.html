@@ -16,41 +16,29 @@
         <a href="./a-propos.html">À Propos</a>
     </div>
    
-    <h1>🛠️ Modifier un Réglage (Variable) sur Render</h1>
+    <h1>🛠️ Modifier les Variables sur Render</h1>
     
     <div class="intro">
-        <p>Voici comment changer les réglages de ton bot (comme le préfixe ou le nom) si tu utilises Render comme hébergeur.</p>
-        <p class="etape-intro">Cette méthode est idéale pour renouveler ta SESSION_ID sans avoir à refaire le déploiement complet.</p>
+        <p>Change tes réglages rapidement sans redéployer ton bot.</p>
+        <p class="etape-intro">Parfait pour mettre à jour ta SESSION_ID, ton préfixe, ou n'importe quel réglage.</p>
     </div>
 
     <ol>
         <li>
-            <h3>Accéder au Web Service</h3>
-            <p>Va sur ton tableau de bord Render et clique sur le bot que tu veux modifier (c'est ton 'Web Service').</p>
+            <h3>Ouvre ton bot sur Render</h3>
+            <p>Tableau de bord Render → Clique sur ton bot</p>
         </li>
         <li>
-            <h3>Ouvrir l'Environnement</h3>
-            <p>Dans le menu de navigation de ton bot, trouve et clique sur l'onglet 'Environment' (Environnement).</p>
+            <h3>Va dans "Environment"</h3>
+            <p>Menu de gauche → Clique sur "Environment"</p>
         </li>
         <li>
-            <h3>Mise à Jour de la SESSION_ID (Si nécessaire)</h3>
-            <p>Si tu as généré une nouvelle clé de connexion (SESSION_ID) :</p>
-            <details>
-                <summary>Comment mettre à jour ma clé ?</summary>
-                <div class="vars-list">
-                    <p>1. Cherche la variable nommée <code>SESSION_ID</code>.</p>
-                    <p>2. Clique sur l'icône de modification (souvent un crayon).</p>
-                    <p>3. Colle ta nouvelle et longue chaîne de connexion (que tu as obtenue après le Pair du Code) dans le champ Value.</p>
-                </div>
-            </details>
+            <h3>Modifie la variable</h3>
+            <p>Clique sur le crayon → Change la valeur → "Save Changes"</p>
         </li>
         <li>
-            <h3>Modifier les autres Variables</h3>
-            <p>Cherche le réglage à changer (par exemple : <code>PREFIXE</code> ou <code>NOM_OWNER</code>). Clique pour modifier sa valeur.</p>
-        </li>
-        <li>
-            <h3>Sauvegarder et Redémarrer</h3>
-            <p>Une fois que tu as fini de modifier ou d'ajouter de nouveaux réglages, clique sur le bouton 'Save Changes' en bas. Render va redémarrer ton bot automatiquement pour appliquer les changements. Attends le statut 'live' ! 🎉</p>
+            <h3>Attends le redémarrage</h3>
+            <p>Render redémarre automatiquement. Attends le statut <code>live</code> ✅</p>
         </li>
     </ol>
     <footer>

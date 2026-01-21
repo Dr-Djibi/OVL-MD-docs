@@ -16,45 +16,33 @@
         <a href="./a-propos.html">À Propos</a>
     </div>
    
-    <h1>🛠️ Modifier un Réglage (Variable) sur Koyeb</h1>
+    <h1>🛠️ Modifier les Variables sur Koyeb</h1>
     
     <div class="intro">
-        <p>Voici comment changer les réglages de ton bot (comme le préfixe ou le nom) si tu utilises Koyeb comme hébergeur.</p>
-        <p class="etape-intro">C'est la méthode rapide pour renouveler ta SESSION_ID ou modifier tes paramètres sans tout redéployer.</p>
+        <p>Change tes réglages rapidement sans redéployer ton bot.</p>
+        <p class="etape-intro">Parfait pour mettre à jour ta SESSION_ID, ton préfixe, ou n'importe quel réglage.</p>
     </div>
 
     <ol>
         <li>
-            <h3>Accéder à l'Application</h3>
-            <p>Va sur ton tableau de bord Koyeb et clique sur l'Application qui contient ton bot (par défaut, elle s'appelle probablement `ovl-md`).</p>
+            <h3>Ouvre ton application Koyeb</h3>
+            <p>Tableau de bord Koyeb → Clique sur l'application (ex: "ovl-md")</p>
         </li>
         <li>
-            <h3>Sélectionner le Service</h3>
-            <p>Dans l'application, tu verras le Service de ton bot. Clique sur cet élément pour ouvrir le panneau de configuration.</p>
+            <h3>Clique sur le Service</h3>
+            <p>Tu vois le service de ton bot → Clique dessus</p>
         </li>
         <li>
-            <h3>Ouvrir l'onglet 'Environnement'</h3>
-            <p>Dans le menu de navigation à gauche du Service, trouve et clique sur l'onglet 'Environment variables' (Variables d'environnement).</p>
+            <h3>Va dans "Environment variables"</h3>
+            <p>Menu de gauche → Clique sur "Environment variables"</p>
         </li>
         <li>
-            <h3>Mise à Jour de la SESSION_ID (Si nécessaire)</h3>
-            <p>Si tu as généré une nouvelle clé de connexion (SESSION_ID) :</p>
-            <details>
-                <summary>Comment mettre à jour ma clé ?</summary>
-                <div class="vars-list">
-                    <p>1. Cherche la variable nommée <code>SESSION_ID</code>.</p>
-                    <p>2. Clique sur l'icône de modification (souvent un crayon).</p>
-                    <p>3. Colle ta nouvelle et longue chaîne de connexion (obtenue après le Pair du Code) dans le champ Value.</p>
-                </div>
-            </details>
+            <h3>Modifie la variable</h3>
+            <p>Clique sur le crayon → Change la valeur → "Save"</p>
         </li>
         <li>
-            <h3>Modifier les autres Variables</h3>
-            <p>Cherche le réglage que tu veux changer (par exemple : <code>PREFIXE</code> ou <code>MODE</code>). Clique pour modifier sa valeur.</p>
-        </li>
-        <li>
-            <h3>Déployer les Changements</h3>
-            <p>Une fois que tu as fini de modifier, clique sur le bouton 'Save' (Sauvegarder) en bas de la section. Koyeb va automatiquement lancer un nouveau déploiement pour que ton bot applique les changements. Attends le statut 'Running' ! 🎉</p>
+            <h3>Attends le déploiement</h3>
+            <p>Koyeb redéploie automatiquement. Attends le statut <code>Running</code> ✅</p>
         </li>
     </ol>
     <footer>
