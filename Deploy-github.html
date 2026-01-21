@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de Déploiement : GitHub | OVL-MD</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./index.html">Accueil</a>
+        <a href="./contact.html">Contact & Support</a>
+        <a href="./a-propos.html">À Propos</a>
+    </div>
+    <h1>Déploiement sur GitHub</h1>
+
+    <div class="intro">
+        <p>🚀 Installer ton Bot OVL-MD sur GitHub avec GitHub Actions :</p>
+        <p class="etape-intro">Voici comment mettre ton bot en ligne en utilisant GitHub Actions, une plateforme d'automatisation gratuite qui exécute ton bot.</p>
+    </div>
+
+    <ol>
+        <li>
+            <h3>Création de la Clé de Connexion (Session ID)</h3>
+            <p>Ta clé est secrète et lie le bot à ton WhatsApp. Va sur : <a href="https://ovl-web.koyeb.app"><code>https://ovl-web.koyeb.app</code></a></p>
+        </li>
+
+        <li>
+            <h3>Pair du Code (Code d'association)</h3>
+            <p>1. Va sur le site indiqué et entre ton numéro de téléphone pour demander le code.</p>
+            <p>2. Ouvre ton téléphone et va dans WhatsApp. Le code à 8 chiffres est à entrer ici :</p>
+            <p style="font-weight: bold; margin-left: 20px;">
+                WhatsApp > Paramètres (ou Options) > Appareils connectés > Lier un appareil > Lier avec un numéro de téléphone
+            </p>
+            <p>3. Entre le code à 8 chiffres que le site t'a donné. Une fois associé, le site te fournira ta longue chaîne de caractères : c'est ta SESSION_ID (garde-la précieusement !).</p>
+        </li>
+
+        <li>
+            <h3>Création d'un Compte GitHub</h3>
+            <p>Si tu n'as pas encore de compte, crée un compte sur <a href="https://github.com"><code>GitHub.com</code></a>.</p>
+        </li>
+
+        <li>
+            <h3>Fork du Dépôt OVL-MD</h3>
+            <p>1. Va sur le dépôt officiel : <a href="https://github.com/Ainz-devs/OVL-MD-V2"><code>https://github.com/Ainz-devs/OVL-MD-V2</code></a></p>
+            <p>2. Clique sur le bouton <strong>'Fork'</strong> en haut à droite pour créer une copie du projet sous ton compte GitHub.</p>
+            <p>3. Attends que la copie soit créée. Tu auras alors ton propre dépôt <code>ton-username/OVL-MD-V2</code>.</p>
+        </li>
+
+        <li>
+            <h3>Création du Fichier Workflow GitHub Actions</h3>
+            <p>Dans ton dépôt forké, crée la structure suivante :</p>
+            <p style="font-weight: bold; margin-left: 20px;">
+                .github/workflows/deploy.yml
+            </p>
+            
+            <details>
+                <summary>Cliquez ici pour voir le contenu du fichier</summary>
+                <div class="vars-list">
+                    <p>Crée le fichier <code>.github/workflows/deploy.yml</code> avec ce contenu exact :</p>
+                    <pre style="background: #f5f5f5; padding: 10px; border-radius: 5px; overflow-x: auto;">
+name: OVL-MD Bot CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 */5 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          sudo apt update
+          sudo apt install -y ffmpeg
+          npm i
+      - run: timeout 18300s npm run Ovl</pre>
+                </div>
+            </details>
+        </li>
+
+        <li>
+            <h3>Création du Fichier .env</h3>
+            <p>À la racine de ton dépôt forké, crée un fichier nommé <code>.env</code> pour tes variables d'environnement.</p>
+            
+            <details>
+                <summary>Cliquez ici pour voir le contenu du fichier .env</summary>
+                <div class="vars-list">
+                    <p>Crée le fichier <code>.env</code> avec ce contenu :</p>
+                    <pre style="background: #f5f5f5; padding: 10px; border-radius: 5px; overflow-x: auto;">
+# Configuration du Bot OVL-MD
+SESSION_ID=ta-longue-clé-ici
+NUMERO_OWNER=226xxxxxxxx
+NOM_OWNER=Ainz
+PREFIXE=.
+MODE=public
+STICKER_PACK_NAME=Wa-sticker
+STICKER_AUTHOR_NAME=OVL-MD
+LEVEL_UP=non
+DATABASE=
+</pre>
+                    
+                    <p style="margin-top: 15px;"><strong>Explications des variables :</strong></p>
+                    <p>A) <strong><code>SESSION_ID</code></strong> = Colle ta clé de connexion de l'étape 1 (la longue chaîne de caractères).</p>
+                    <p>B) <strong><code>NUMERO_OWNER</code></strong> = Ton numéro WhatsApp (sans le `+` au début, ex: `2267xxxxxxx`).</p>
+                    <p>C) <strong><code>NOM_OWNER</code></strong> = Le nom que le bot utilisera pour te nommer.</p>
+                    <p>D) <strong><code>PREFIXE</code></strong> = Le symbole devant les commandes (ex: `.`, `!`, `$`).</p>
+                    <p>E) <strong><code>MODE</code></strong> = `public` (tout le monde) ou `private` (toi seul).</p>
+                    <p>F) <strong><code>STICKER_PACK_NAME</code></strong> = Nom du pack d'autocollants.</p>
+                    <p>G) <strong><code>STICKER_AUTHOR_NAME</code></strong> = Auteur des autocollants.</p>
+                </div>
+            </details>
+        </li>
+
+        <li>
+            <h3>Remplir le Fichier .env avec tes Données</h3>
+            <p>Modifie les valeurs du fichier <code>.env</code> avec tes informations :</p>
+            
+            <div class="vars-list">
+                <p style="color: #d9534f;"><strong>⚠️ TRÈS IMPORTANT :</strong></p>
+                <p>- <code>SESSION_ID</code> : Ta clé générée à l'étape 1 (la clé longue de caractères)</p>
+                <p>- <code>NUMERO_OWNER</code> : Ton vrai numéro WhatsApp (sans +, ex: 226xxxxxxxx)</p>
+                <p>- <code>NOM_OWNER</code> : Ton nom ou surnom (ex: "Dr Djibi")</p>
+                <p>- <code>PREFIXE</code> : Simple (`.` ou `!`) ou un emoji</p>
+            </div>
+        </li>
+
+        <li>
+            <h3>Push le Dépôt sur GitHub</h3>
+            <p>Une fois que tu as créé et rempli les fichiers, pousse-les sur GitHub :</p>
+            <p style="margin-left: 20px; font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px;">
+                git add . <br>
+                git commit -m "Add GitHub Actions workflow" <br>
+                git push origin main
+            </p>
+        </li>
+
+        <li>
+            <h3>Activation de GitHub Actions</h3>
+            <p>1. Va dans ton dépôt forké sur GitHub.</p>
+            <p>2. Clique sur l'onglet <strong>'Actions'</strong>.</p>
+            <p>3. Tu devrais voir le workflow <strong>'OVL-MD Bot CI'</strong>.</p>
+            <p>4. Le workflow va se lancer automatiquement à chaque <code>push</code> sur <code>main</code>.</p>
+        </li>
+
+        <li>
+            <h3>Monitoring et Dépannage</h3>
+            <p>Clique sur le workflow en cours d'exécution pour voir :</p>
+            <ul>
+                <li>✅ Le statut (en cours, réussi, échoué)</li>
+                <li>📋 Les logs détaillés</li>
+                <li>⏱️ Le temps d'exécution</li>
+            </ul>
+            
+            <p style="margin-top: 15px;"><strong>Si ça échoue :</strong></p>
+            <ul>
+                <li>Vérifie que le fichier <code>.env</code> est correctement rempli</li>
+                <li>Vérifie que ta SESSION_ID est valide</li>
+                <li>Regarde les logs pour voir le message d'erreur</li>
+                <li>Contacte le support si besoin</li>
+            </ul>
+        </li>
+
+        <li>
+            <h3>Options Avancées</h3>
+            <p>Le workflow a 3 déclencheurs :</p>
+            <ul>
+                <li><strong>Push</strong> : S'exécute quand tu fais un <code>git push</code></li>
+                <li><strong>Pull Request</strong> : S'exécute quand une PR est ouverte</li>
+                <li><strong>Cron (Toutes les 5h)</strong> : S'exécute automatiquement toutes les 5 heures</li>
+            </ul>
+            <p>Tu peux modifier la fréquence dans le champ <code>cron</code> du fichier <code>.github/workflows/deploy.yml</code>.</p>
+        </li>
+    </ol>
+
+    <h2 style="margin-top: 50px;">⚠️ Points Importants</h2>
+    
+    <div class="etape">
+        <p><strong>⏱️ Durée d'exécution :</strong> GitHub Actions gratuit a une limite de 2000 minutes/mois. Chaque exécution dure environ 5 heures.</p>
+        <p><strong>🔐 Sécurité :</strong> Ne commit jamais ton vrai SESSION_ID en clair. Utilise les GitHub Secrets pour les données sensibles.</p>
+        <p><strong>📱 Stabilité :</strong> GitHub Actions arrête les workflows après une certaine durée. C'est idéal pour des tests, mais pour un bot 24h/24, préfère Render ou Koyeb.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025-2026 Guides OVL-MD. Tous droits réservés.</p>
+        <p>Créé et maintenu par <strong>Dr Djibi</strong>.</p>
+    </footer>
+
+</body>
+
+</html>
