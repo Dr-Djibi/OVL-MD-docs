@@ -24,54 +24,47 @@
 
     <ol>
         <li>
-            <h3>Création de la Clé de Connexion (Session ID)</h3>
-            <p>Ta clé est secrète et lie le bot à ton WhatsApp. Va sur : <br><a href="https://ovl-web.koyeb.app"><code>https://ovl-web.koyeb.app</code></a></p>
+            <h3>Obtiens ta Clé de Connexion</h3>
+            <p>Va sur <a href="https://ovl-web.koyeb.app"><code>https://ovl-web.koyeb.app</code></a> pour générer ta clé (SESSION_ID) qui lie le bot à WhatsApp.</p>
         </li>
         <li>
-            <h3>Pair du Code (Code d'association)</h3>
-            <p>1. Va sur le site indiqué et entre ton numéro de téléphone pour demander le code.</p>
-            <p>2. Ouvre ton téléphone et va dans WhatsApp. Le code à 8 chiffres est à entrer ici :</p>
-            <p style="font-weight: bold; margin-left: 20px;">
-                WhatsApp > Paramètres (ou Options) > Appareils connectés > Lier un appareil > Lier avec un numéro de
-                téléphone
-            </p>
-            <p>3. Entre le code à 8 chiffres que le site t'a donné. Une fois associé, le site te fournira ta longue
-                chaîne de caractères : c'est ta SESSION_ID (garde-la précieusement !).</p>
+            <h3>Génère le Code d'Association</h3>
+            <p><strong>Sur le site :</strong> Entre ton numéro de téléphone pour demander un code.</p>
+            <p><strong>Sur WhatsApp :</strong> Paramètres > Appareils connectés > Lier avec un numéro de téléphone → Entre le code à 8 chiffres.</p>
+            <p><strong>Résultat :</strong> Le site te donne ta longue clé SESSION_ID (copie-la !)</p>
         </li>
         
         <li>
-            <h3>Création du Compte Render</h3>
-            <p>Crée un compte sur Render.com.</p>
+            <h3>Crée un Compte Render</h3>
+            <p>Va sur <a href="https://render.com"><code>Render.com</code></a> et crée un compte gratuit.</p>
         </li>
         <li>
-            <h3>Sélection du Web Service</h3>
-            <p>Sur ton tableau de bord Render, clique sur 'New' puis sélectionne 'Web Service'.</p>
+            <h3>Crée un Web Service</h3>
+            <p>Tableau de bord → "New" → "Web Service"</p>
         </li>
         <li>
-            <h3>Lien du Dépôt</h3>
-            <p>Choisis l'option 'Public Git repository' et entre le lien Dockerfile suivant: <br>
-                <code>https://github.com/Dr-Djibi/Dockerfile</code></p>
+            <h3>Relie le Dépôt Dockerfile</h3>
+            <p>Sélectionne "Public Git repository" et colle : <code>https://github.com/Dr-Djibi/Dockerfile</code></p>
         </li>
         <li>
-            <h3>Nom et Plan</h3>
-            <p>Dans le formulaire, choisis un nom pour ton service (ex: <code>ovl-md-bot</code>).</p> 
-            <p>Sélectionne le plan 'Free' (gratuit) pour l'instance.</p> 
+            <h3>Configure le Service</h3>
+            <p>Donne un nom (ex: <code>ovl-md-bot</code>) et sélectionne le plan <code>Free</code> (gratuit).</p>
         </li>
         <li>
-            <h3>Ajout des Variables d'Environnement (VARS)</h3>
-            <p>Clique sur 'Add Environment Variable' pour chaque ligne suivante. C'est <strong>TRÈS IMPORTANT</strong> !</p>
+            <h3>Ajoute tes Variables</h3>
+            <p>Clique "Add Environment Variable" pour chaque ligne :</p>
             
             <div class="vars-list">
-                <p>A) <strong><code>PREFIXE</code></strong> = <code>.</code> (ou ton symbole préféré ou même un emoji 🤧, 🖤)</p>
-                <p>B) <strong><code>NOM_OWNER</code></strong> = <code>Ainz</code> (ou ton nom)</p>
-                <p>C) <strong><code>NUMERO_OWNER</code></strong> = <code>226xxxxxxxx</code> (ton numéro sans <code>+</code>)</p> 
-                <p>D) <strong><code>MODE</code></strong> = <code>public</code> (ou <code>private</code>)</p> 
-                <p>E) TRÈS IMPORTANT : <strong><code>SESSION_ID</code></strong> = Colle ta clé de connexion de l'étape 1.</p> 
+                <p><strong>SESSION_ID</strong> = Ta longue clé de l'étape 2</p>
+                <p><strong>NUMERO_OWNER</strong> = Ton numéro WhatsApp (sans +, ex: 226xxxxxxxx)</p>
+                <p><strong>NOM_OWNER</strong> = Ton nom ou surnom</p>
+                <p><strong>PREFIXE</strong> = . (ou ! ou $ ou un emoji)</p>
+                <p><strong>MODE</strong> = public (tout le monde) ou private (toi seul)</p>
             </div>
             </li>
         <li>
-            <h3>Lancement et Démarrage</h3>
-            <p>Clique sur <strong>'Create Web Service'</strong> en bas. Render va commencer à construire et démarrer ton bot. Attends le statut <strong>'live'</strong> ! 🎉</p>
+            <h3>Lance le Bot</h3>
+            <p>Clique "Create Web Service" → Attends le statut <code>live</code> ✅</p>
         </li>
     </ol>
     <footer>
