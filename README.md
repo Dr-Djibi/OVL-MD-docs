@@ -43,7 +43,7 @@ Besoin d'aide ? Rejoignez notre communauté :
 
 * [Groupe de Support WhatsApp](https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq)
 * [Chaîne WhatsApp (Annonces)](https://chat.whatsapp.com/GhFeYfQbDv0Ao0mxYf2LWq)
-* [Contacter l'équipe](contact.html)
+* [Contacter l'équipe](https://dr-djibi.github.io/OVL-MD-docs/contact.html)
 
 ---
 
@@ -52,6 +52,4 @@ Développeur de OVL-MD : **Ainz**
 
 Développeur du Docs : **Dr Djibi**
 
----
-
-
+--
