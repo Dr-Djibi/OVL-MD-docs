@@ -1,46 +1,283 @@
 /* =======================================================
-   style.css - Styles Communs pour tous les guides OVL-MD
+   STYLE.CSS - DOCUMENTATION OVL-MD
+   
+   Ce fichier contient tous les styles CSS pour la 
+   documentation OVL-MD. Chaque section est clairement 
+   commentée pour faciliter la maintenance et les 
+   modifications futures.
+   
+   STRUCTURE DU FICHIER :
+   1. Variables CSS globales
+   2. Styles de base (Body, typographie)
+   3. Navigation (.navbar)
+   4. Contenu principal (titres, paragraphes, listes)
+   5. Composants spécifiques (cartes, étapes, détails)
+   6. Alertes et mises en évidence
+   7. Pied de page (footer)
+   8. Responsive Design (Media Queries)
+   
    ======================================================= */
 
-/* Base et Reset */
+/* =======================================================
+   1. VARIABLES CSS GLOBALES
+   
+   Ces variables permettent une gestion centralisée des
+   couleurs et des tailles. Les modifier affecte le 
+   site entier !
+   ======================================================= */
+
+:root {
+    /* Couleurs principales */
+    --couleur-primaire: #28a745;      /* Vert - Succès/Action positive */
+    --couleur-secondaire: #007bff;    /* Bleu - Information/Lien */
+    --couleur-danger: #dc3545;        /* Rouge - Danger/Erreur */
+    --couleur-warning: #ff8c00;       /* Orange - Avertissement */
+    --couleur-light: #f0f2f5;         /* Gris très clair - Fond de page */
+    --couleur-dark: #1c1e21;          /* Gris très foncé - Texte principal */
+    
+    /* Couleurs de fond pour sections */
+    --bg-info: #e7f3ff;               /* Bleu très clair pour .intro */
+    --bg-vars: #f9f9f9;               /* Gris clair pour .vars-list */
+    --bg-details: #fffbe6;            /* Jaune très clair pour details */
+    --bg-navbar: #333;                /* Gris foncé pour navbar */
+    --bg-danger: #f8d7da;             /* Rose clair pour alertes */
+    
+    /* Espacements */
+    --gap-small: 5px;
+    --gap-medium: 15px;
+    --gap-large: 20px;
+    --gap-xlarge: 30px;
+}
+
+/* =======================================================
+   2. STYLES DE BASE - BODY ET TYPOGRAPHIE
+   
+   Ces styles s'appliquent à la page entière et sont
+   les styles "par défaut" dont héritent tous les 
+   éléments.
+   ======================================================= */
+
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin: 0; 
-    padding: 20px; 
-    background-color: #f0f2f5; /* Fond léger */
-    color: #1c1e21;
+    padding: var(--gap-large);
+    background-color: var(--couleur-light);
+    color: var(--couleur-dark);
     line-height: 1.6;
 }
 
-/* En-tête de la Page (Titre du guide) */
+/* =======================================================
+   TITRES (h1, h2, h3)
+   
+   Hiérarchie visuelle avec tailles et couleurs 
+   décroissantes.
+   ======================================================= */
+
 h1 { 
-    color: #28a745; /* Vert pour le succès */
+    /* Titre principal de la page */
+    color: var(--couleur-primaire);
     border-bottom: 3px solid #ccc; 
-    padding-bottom: 15px; 
-    margin-bottom: 25px;
+    padding-bottom: var(--gap-medium);
+    margin-bottom: var(--gap-large);
     font-size: 2em;
 }
 
-/* Introduction / Descriptions */
+h2 {
+    /* Sous-titre */
+    color: var(--couleur-dark);
+    font-size: 1.5em;
+    margin-top: var(--gap-xlarge);
+}
+
+h3 {
+    /* Titre de section */
+    color: var(--couleur-dark);
+    font-weight: 600;
+}
+
+/* =======================================================
+   PARAGRAPHES ET TEXTE
+   ======================================================= */
+
+p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: var(--gap-small) 0;
+}
+
+/* =======================================================
+   LIENS (a)
+   
+   Style des liens hypertexte dans tout le document.
+   ======================================================= */
+
+a {
+    color: #1d5aa0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* =======================================================
+   CODE ET CODE BLOCKS
+   
+   Mise en évidence du code inline et des blocs de code.
+   ======================================================= */
+
+code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.95em;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: var(--gap-medium);
+    border-radius: 5px;
+    overflow-x: auto;
+    border-left: 4px solid var(--couleur-primaire);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* =======================================================
+   IMAGES
+   ======================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: var(--gap-medium);
+    border: 1px solid #ddd;
+}
+
+
+/* =======================================================
+   3. NAVIGATION - .navbar
+   
+   Barre de navigation horizontale en haut de la page.
+   Classe : navbar
+   Éléments enfants : a (liens de navigation)
+   
+   Couleurs :
+   - Fond : gris foncé (#333)
+   - Texte : blanc
+   - Survol : gris moyen (#555)
+   - Page active : vert primaire
+   ======================================================= */
+
+.navbar {
+    background-color: var(--bg-navbar);
+    padding: var(--gap-medium) 0;
+    margin-bottom: var(--gap-xlarge);
+    border-radius: 5px;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: var(--gap-medium) 15px;
+    margin: 0 var(--gap-small);
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    
+    flex-shrink: 0;
+    min-width: fit-content;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.navbar a.active {
+    background-color: var(--couleur-primaire);
+}
+
+/* =======================================================
+   4. CONTENU PRINCIPAL
+   ======================================================= */
+
+/* =======================================================
+   INTRODUCTION - .intro
+   
+   Classe : intro
+   Utilisé pour : Bloc de texte introductif/informatif
+   Couleur : Bleu clair avec bordure bleue
+   
+   Exemple d'utilisation en HTML :
+   <div class="intro">
+       <p>Ceci est une introduction.</p>
+   </div>
+   ======================================================= */
+
 .intro {
-    background-color: #e7f3ff; /* Bleu clair */
-    padding: 15px;
-    border-left: 5px solid #007bff;
-    margin-bottom: 20px;
+    background-color: var(--bg-info);
+    padding: var(--gap-medium);
+    border-left: 5px solid var(--couleur-secondaire);
+    margin-bottom: var(--gap-large);
     border-radius: 4px;
 }
 
-/* Liste des étapes (ol) */
+.etape-intro {
+    font-style: italic;
+    color: #555;
+}
+
+/* =======================================================
+   LISTES ORDONNÉES - ol (Étapes numérotées)
+   
+   Les listes numérotées utilisent un compteur CSS
+   personnalisé pour afficher des cercles verts numérotés.
+   
+   Structure HTML recommandée :
+   <ol>
+       <li>Première étape</li>
+       <li>Deuxième étape</li>
+       <li>Troisième étape</li>
+   </ol>
+   ======================================================= */
+
 ol {
     list-style: none;
     padding: 0;
-    counter-reset: step-counter; 
+    counter-reset: step-counter;
 }
 
-/* Style de chaque élément d'étape (li) */
+/* =======================================================
+   ÉTAPES NUMÉROTÉES - li
+   
+   Classe : etape (appliquée aux <li>)
+   Affichage : Cartes blanches avec numéro vert en cercle
+   
+   Exemple HTML :
+   <ol>
+       <li class="etape">Contenu de l'étape</li>
+   </ol>
+   ======================================================= */
+
 li {
     background-color: #fff;
-    padding: 15px 15px 15px 50px;
+    padding: var(--gap-medium) var(--gap-medium) var(--gap-medium) 50px;
     margin-bottom: 12px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -48,231 +285,398 @@ li {
     font-size: 1.05em;
 }
 
-/* Numéro de l'étape (Personnalisé) */
+/* Numéro de l'étape - Cercle vert numéroté */
 li::before {
     content: counter(step-counter);
     counter-increment: step-counter;
+    
     position: absolute;
     left: 15px;
     top: 15px;
-    background-color: #28a745;
-    color: white;
+    
     width: 25px;
     height: 25px;
     line-height: 25px;
+    
+    background-color: var(--couleur-primaire);
+    color: white;
     text-align: center;
     border-radius: 50%;
     font-weight: bold;
 }
 
-/* Mise en évidence du code ou des noms */
-code {
-    background-color: #eee;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-family: monospace;
+/* =======================================================
+   LISTES À PUCES IMBRIQUÉES - ul
+   
+   Listes à puces pour les éléments importants
+   à l'intérieur des étapes.
+   
+   Exemple HTML :
+   <li>
+       <h3>Titre</h3>
+       <ul>
+           <li>Élément 1</li>
+           <li>Élément 2</li>
+       </ul>
+   </li>
+   ======================================================= */
+
+li ul {
+    padding-left: 0;
+    margin-top: var(--gap-small);
+    margin-bottom: 0;
 }
 
-/* Blocs d'information (Variables d'environnement) */
-.vars-list {
-    background-color: #f9f9f9;
-    border: 1px dashed #ddd;
-    padding: 10px;
-    margin-top: 10px;
-}
-.vars-list strong {
-    color: #dc3545; /* Rouge pour l'importance */
-}
-
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-top: 15px;
-    border: 1px solid #ddd;
-}
-/* Liens */
-a {
-    color: #1d5aa0;
-    text-decoration: none;
+li ul li {
+    background: none;
+    box-shadow: none;
+    position: static;
+    
+    padding: var(--gap-small) 0 var(--gap-small) 25px;
+    margin-bottom: var(--gap-small);
+    
+    list-style-type: disc;
 }
 
+/* Retire le numéro personnalisé pour les sous-éléments */
+li ul li::before {
+    content: none;
+}
 
 /* =======================================================
-   AJOUT POUR LA SECTION DÉPLIABLE (Variables d'Environnement)
+   5. COMPOSANTS SPÉCIFIQUES
+   ======================================================= */
+
+/* =======================================================
+   VARIABLES D'ENVIRONNEMENT - .vars-list
+   
+   Classe : vars-list
+   Utilisé pour : Afficher les variables d'environnement,
+                 les configurations importantes
+   Couleur : Gris clair avec bordure pointillée
+   Texte important : Rouge
+   
+   Exemple HTML :
+   <div class="vars-list">
+       <p><strong>VARIABLE</strong> = valeur</p>
+   </div>
+   ======================================================= */
+
+.vars-list {
+    background-color: var(--bg-vars);
+    border: 1px dashed #ddd;
+    padding: var(--gap-medium);
+    margin-top: var(--gap-medium);
+    border-radius: 4px;
+}
+
+.vars-list strong {
+    color: var(--couleur-danger);
+}
+
+.vars-list p {
+    margin: 8px 0;
+}
+
+/* =======================================================
+   SECTION DÉPLIABLE - details & summary
+   
+   Élément HTML : <details> et <summary>
+   Utilisé pour : Masquer/afficher du contenu optionnel
+   Couleur : Jaune clair avec bordure orange
+   
+   Icône : Flèche qui change de direction (▶ / ▼)
+   
+   Exemple HTML :
+   <details>
+       <summary>Cliquez pour voir plus</summary>
+       <div class="vars-list">
+           Contenu caché ici
+       </div>
+   </details>
    ======================================================= */
 
 details {
-    /* Encadrement et couleur de fond pour attirer l'attention */
-    border: 1px solid #ffc107; /* Bordure jaune/orange */
+    border: 1px solid var(--couleur-warning);
     border-radius: 8px;
-    padding: 10px;
-    margin-top: 15px;
-    background-color: #fffbe6; /* Fond jaune très clair */
+    padding: var(--gap-medium);
+    margin-top: var(--gap-medium);
+    background-color: var(--bg-details);
 }
 
 summary {
     font-weight: bold;
-    color: #ff8c00; /* Orange vif pour le titre dépliable */
+    color: var(--couleur-warning);
     cursor: pointer;
-    list-style: none; /* Cache la flèche/triangle par défaut */
+    list-style: none;
     padding-left: 15px;
     position: relative;
+    user-select: none;
+    transition: color 0.2s;
 }
 
-/* Ajoute une icône ou une flèche personnalisée (optionnel) */
+summary:hover {
+    color: var(--couleur-danger);
+}
+
+/* Icône flèche pour la section dépliable */
 summary::before {
-    content: '▶'; /* Icône flèche vers la droite */
+    content: '▶';
     position: absolute;
     left: 0;
-    color: #28a745;
+    color: var(--couleur-primaire);
     transition: transform 0.2s;
+    font-size: 0.8em;
 }
 
-/* Fait pivoter l'icône lorsque la section est ouverte */
+/* Lorsque la section est ouverte */
 details[open] summary::before {
-    content: '▼'; /* Icône flèche vers le bas */
+    content: '▼';
 }
-
-/* Retire les marges inutiles à l'intérieur du bloc */
-.vars-list {
-    margin-top: 5px; /* Réduit l'espace avec le titre */
-    border-top: 1px solid #eee; /* Petite séparation */
-    padding-top: 10px;
-}
-
 
 /* =======================================================
-   AJOUT POUR LA NAVIGATION (Barre de liens en haut) - LIGNE UNIQUE FORCÉE
-   ======================================================= */
-
-.navbar {
-    background-color: #333; /* Fond sombre */
-    padding: 10px 0;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    
-    /* Propriétés pour forcer l'alignement horizontal et le défilement */
-    display: flex; 
-    flex-wrap: nowrap; /* EMPÊCHE les éléments de sauter à la ligne (CRUCIAL) */
-    justify-content: flex-start; /* Aligne les liens au début */
-    overflow-x: auto; /* PERMET le défilement horizontal si la barre est trop large */
-    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
-}
-
-.navbar a {
-    color: white; /* Texte blanc */
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 0 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    border-radius: 3px;
-    
-    /* Propriétés pour les liens */
-    flex-shrink: 0; /* EMPÊCHE le texte de se rétrécir et de devenir illisible */
-    min-width: fit-content; /* Assure que le lien ne soit pas plus petit que son contenu */
-    text-align: center;
-}
-
-.navbar a:hover {
-    background-color: #555; /* Changement de couleur au survol */
-}
-
-/* Style spécifique pour la page actuelle */
-.navbar a.active {
-    background-color: #28a745; /* Vert pour indiquer la page active */
-}
-
-
-
-/* =======================================================
-   AJOUT POUR LA PAGE D'ACCUEIL (Cartes de guide)
+   CONTENEUR DE CARTES - .cards-container
+   
+   Classe : cards-container
+   Utilisé pour : Disposition en grille des cartes
+                 de guide sur la page d'accueil
+   
+   Classe enfant : cards-container .etape
+   
+   Exemple HTML :
+   <div class="cards-container">
+       <div class="etape">
+           <h2>Titre</h2>
+           <p>Description</p>
+       </div>
+   </div>
    ======================================================= */
 
 .cards-container {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* Assure que les cartes s'empilent sur les petits écrans */
+    gap: var(--gap-large);
+    flex-wrap: wrap;
 }
 
-/* La classe .etape est déjà définie, nous la modifions légèrement ici pour le conteneur */
 .cards-container .etape {
-    /* Flex: grow, shrink, base-width (Assure qu'il y a 2 cartes sur PC et 1 sur mobile) */
-    flex: 1 1 300px; 
-    padding: 20px; /* Ajout d'un peu plus de padding pour les cartes d'accueil */
+    flex: 1 1 300px;
+    padding: var(--gap-large);
 }
 
 .cards-container h2 {
     font-size: 1.3em;
-    color: #007bff; /* Bleu pour différencier les titres de cartes des h1 (Vert) */
+    color: var(--couleur-secondaire);
+    margin-top: 0;
 }
 /* =======================================================
-   STYLE D'ALERTE ROUGE/DANGER
+   6. ALERTES ET MISES EN ÉVIDENCE
    ======================================================= */
+
+/* =======================================================
+   ALERTE DANGER - .note-danger
+   
+   Classe : note-danger
+   Utilisé pour : Avertissements importants, infos dangereuses
+   Couleur : Fond rose avec bordure et texte rouge
+   
+   Exemple HTML :
+   <div class="note-danger">
+       <p>⚠️ Ceci est un avertissement important !</p>
+   </div>
+   ======================================================= */
+
 .note-danger {
-    padding: 15px;
-    border: 1px solid #dc3545; /* Bordure rouge */
-    background-color: #f8d7da; /* Fond rose très clair */
-    color: #721c24; /* Texte rouge foncé */
+    padding: var(--gap-medium);
+    border: 1px solid var(--couleur-danger);
+    background-color: var(--bg-danger);
+    color: #721c24;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: var(--gap-large);
     font-weight: 500;
 }
+
+.note-danger p {
+    margin: var(--gap-small) 0;
+}
+
+.note-danger strong {
+    color: var(--couleur-danger);
+}
+
 /* =======================================================
-   CORRECTION DES DÉCALAGES ET INDENTATIONS DES LISTES
+   7. PIED DE PAGE - footer
+   
+   Élément HTML : <footer>
+   Utilisé pour : Informations de copyright, crédits
+   
+   Exemple HTML :
+   <footer>
+       <p>&copy; 2025-2026 Guides OVL-MD. Tous droits réservés.</p>
+       <p>Créé par <strong>Dr Djibi</strong>.</p>
+   </footer>
    ======================================================= */
 
-/* Corrige le décalage des listes à puces (<ul>) qui sont imbriquées */
-li ul {
-    /* Supprime le padding par défaut du navigateur sur les listes imbriquées */
-    padding-left: 0; 
-    margin-top: 5px;
-    margin-bottom: 0;
-}
-
-/* Corrige le décalage des éléments (<li>) à l'intérieur des listes à puces */
-li ul li {
-    /* Remet le fond, l'ombre et la position par défaut */
-    background: none; 
-    box-shadow: none;
-    position: static; 
-    /* Définit une indentation propre */
-    padding: 5px 0 5px 25px; 
-    margin-bottom: 5px;
-    /* Rétablit la puce standard */
-    list-style-type: disc; 
-}
-
-/* Retire le numéro personnalisé (li::before) pour les éléments dans les sous-listes */
-li ul li::before {
-    content: none;
-}
-/* =======================================================
-   AJOUT POUR PIED DE PAGE (Copyright)
-   ======================================================= */
 footer {
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: var(--gap-large) 0;
+    margin-top: var(--gap-xlarge);
     border-top: 1px solid #ccc;
     font-size: 0.9em;
-    color: #555; /* Texte gris foncé */
-    background-color: #f7f7f7; /* Légèrement plus foncé que le fond de la page */
-    border-radius: 0 0 8px 8px; /* Si vous voulez qu'il colle au fond du body */
+    color: #555;
+    background-color: #f7f7f7;
+    border-radius: 0 0 8px 8px;
 }
 
 footer p {
-    margin: 5px 0;
+    margin: var(--gap-small) 0;
 }
 
 footer strong {
-    color: #28a745; /* Met en évidence le nom du créateur en vert */
+    color: var(--couleur-primaire);
 }
-/* Cette règle force les chaînes de caractères très longues à se couper pour respecter les marges et les paddings */
-.etape p, .vars-list p, .intro p, ol p, li p {
-    word-break: break-word; /* Recommandé par le W3C */
-    overflow-wrap: break-word; /* Pour une meilleure compatibilité */
+
+/* =======================================================
+   8. RESPONSIVE DESIGN - Media Queries
+   
+   Adaptations pour différentes tailles d'écran :
+   - Mobile : < 768px
+   - Tablette : 768px - 1024px
+   - Desktop : > 1024px
+   ======================================================= */
+
+/* Mobile (Petits écrans : téléphones) */
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar a {
+        padding: 8px 10px;
+        margin: 0 3px;
+        font-size: 0.9em;
+    }
+
+    .cards-container {
+        flex-direction: column;
+    }
+
+    .cards-container .etape {
+        flex: 1 1 auto;
+    }
+
+    li {
+        padding: 10px 10px 10px 40px;
+    }
+
+    li::before {
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 0.8em;
+    }
 }
+
+/* Tablette (Moyens écrans) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cards-container {
+        gap: 15px;
+    }
+
+    .cards-container .etape {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Desktop (Grands écrans) */
+@media (min-width: 1025px) {
+    .cards-container .etape {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* =======================================================
+   9. UTILITAIRES
+   
+   Classes utilitaires pour des cas spécifiques.
+   ======================================================= */
+
+.important {
+    font-weight: bold;
+    color: var(--couleur-danger);
+}
+
+.note-small {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* =======================================================
+   GUIDE D'UTILISATION DES CLASSES ET IDS
+   
+   CLASSES DISPONIBLES :
+   
+   • .navbar - Barre de navigation
+     └─ .navbar a - Liens de navigation
+     └─ .navbar a.active - Lien de page active
+   
+   • .intro - Bloc d'introduction
+     └─ .etape-intro - Texte introductif en italique
+   
+   • .etape - Étape numérotée (appliquée à <li>)
+   
+   • .cards-container - Conteneur de cartes
+     └─ .cards-container .etape - Carte dans le conteneur
+   
+   • .vars-list - Bloc de variables d'environnement
+   
+   • .note-danger - Alerte rouge/avertissement
+   
+   ÉLÉMENTS HTML AVEC STYLES :
+   
+   • details - Section dépliable
+     └─ summary - Titre de la section dépliable
+   
+   • footer - Pied de page
+   
+   COULEURS CSS GLOBALES (Variables) :
+   
+   • --couleur-primaire : #28a745 (Vert)
+   • --couleur-secondaire : #007bff (Bleu)
+   • --couleur-danger : #dc3545 (Rouge)
+   • --couleur-warning : #ff8c00 (Orange)
+   • --couleur-light : #f0f2f5 (Gris clair)
+   • --couleur-dark : #1c1e21 (Gris foncé)
+   
+   ESPACEMENTS (Gaps) :
+   
+   • --gap-small : 5px
+   • --gap-medium : 15px
+   • --gap-large : 20px
+   • --gap-xlarge : 30px
+   
+   POUR MODIFIER LE STYLE :
+   
+   1. Cherche la classe ou l'élément dans ce fichier
+   2. Modifie les propriétés CSS
+   3. Teste sur mobile ET desktop
+   4. Évite les couleurs en dur, utilise les variables
+   5. Ajoute des commentaires pour les changements
+   
+   ======================================================= */
 
