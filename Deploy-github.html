@@ -87,16 +87,7 @@ jobs:
           npm i
       - run: timeout 18300s npm run Ovl
 </pre>
-        </li>
-
-        <li>
-            <h3>Pousse sur GitHub</h3>
-            <p>Envoie tes fichiers sur GitHub :</p>
-            <pre style="background: #f5f5f5; padding: 10px; border-radius: 5px; overflow-x: auto;">
-git add .
-git commit -m "Ajout bot OVL-MD"
-git push origin main
-</pre>
+            <p>En haut clique sur <stong>commit changes</stong> pour sauvegarder</p>
         </li>
 
         <li>
@@ -106,15 +97,6 @@ git push origin main
             <p><strong>2.</strong> Clique sur le workflow "OVL-MD Bot"</p>
             <p><strong>3.</strong> Attends que le statut passe à ✅ <code>Succès</code></p>
         </li>
-    </ol>
-
-    <h2 style="margin-top: 50px;">⚠️ Points Importants</h2>
-    
-    <div class="etape">
-        <p><strong>⏱️ Durée d'exécution :</strong> GitHub Actions gratuit a une limite de 2000 minutes/mois. Chaque exécution dure environ 5 heures.</p>
-        <p><strong>🔐 Sécurité :</strong> Ne commit jamais ton vrai SESSION_ID en clair. Utilise les GitHub Secrets pour les données sensibles.</p>
-        <p><strong>📱 Stabilité :</strong> GitHub Actions arrête les workflows après une certaine durée. C'est idéal pour des tests, mais pour un bot 24h/24, préfère Render ou Koyeb.</p>
-    </div>
 
     <footer>
         <p>&copy; 2025-2026 Guides OVL-MD. Tous droits réservés.</p>
