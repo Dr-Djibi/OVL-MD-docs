@@ -162,6 +162,50 @@ img {
     border: 1px solid #ddd;
 }
 
+/* =======================================================
+   MÉDIA POUR ÉTAPES - .media-step
+   
+   Classe : media-step
+   Utilisé pour : Afficher les images/vidéos de chaque étape
+   Couleur : Fond blanc avec bordure grise
+   
+   La vidéo et l'image sont à l'intérieur d'un conteneur
+   pour les afficher en bas de chaque étape avec du style
+   
+   Exemple HTML :
+   <div class="media-step">
+       <img src="url.png" alt="Description">
+       <video controls><source src="url.mp4"></video>
+   </div>
+   ======================================================= */
+
+.media-step {
+    margin-top: var(--gap-large);
+    padding: var(--gap-medium);
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.media-step img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin: 0;
+    display: block;
+}
+
+.media-step video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* =======================================================
    3. NAVIGATION - .navbar
